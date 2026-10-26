@@ -1,0 +1,409 @@
+[ {
+  "path" : ".git/COMMIT_EDITMSG",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/HEAD",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/config",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/description",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/applypatch-msg.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/commit-msg.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/fsmonitor-watchman.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/post-update.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-applypatch.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-commit.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-merge-commit.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-push.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-rebase.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-receive.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/prepare-commit-msg.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/push-to-checkout.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/sendemail-validate.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/update.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/index",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/info/exclude",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/logs/HEAD",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/logs/refs/heads/master",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/0f/de4a8622507d6162b0307493fcb6a3b0b13713",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/3e/850eecd1ae0db2ddf5786f45857cdc2fe32144",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/56/3c6fe5c6577ef264e6e02610b20a60a9855116",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/74/8adc18ba626b8e72ac8333844d32f6a48fa5a6",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/84/3c6e42b870bad883fafced83fcd6bd481976bb",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/84/3f8cbf07c11766d2f2758ec9ea7417c9ce50ce",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/84/8c756a1d23475ee0bc2f4dfd9ea917d4a1e6fa",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/92/80b8fa49b36332d726754544e072bd8b429016",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/c1/443e29a34f134982b40d464f4cbbe2e7fcaab6",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/ce/a064eef1027ab6b38fdb8b92063e02e5d9c4b3",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/d4/3e2d2c0aa74023d9e98e2f7eab9ebaa52cef27",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/db/d9dc04d61c64d36bfef2a6aef1534549118485",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/fa/812ac21a4b1723d8cda3ab5448d717536cc165",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/refs/heads/master",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : "go/cmd/tool/main.go",
+  "sha256" : "3fab28ab30b92563bd56ca99b15dcd14a1f3d0a782846c297c69d1dd36dd82a6",
+  "language" : "Go",
+  "loc" : 11,
+  "included" : true,
+  "reason" : "included",
+  "contentPath" : "files/go/cmd/tool/main.go",
+  "symbols" : [ {
+    "type" : "function",
+    "name" : "main",
+    "qualifiedName" : "main",
+    "visibility" : "private"
+  }, {
+    "type" : "function",
+    "name" : "greet",
+    "qualifiedName" : "greet",
+    "visibility" : "private"
+  } ]
+}, {
+  "path" : "go/go.mod",
+  "sha256" : "14f21a4bd21a853e5985fd3c2de4658ea60152e1c9899f5b340d1afd90e8a743",
+  "language" : "Unknown",
+  "loc" : 3,
+  "included" : true,
+  "reason" : "included",
+  "contentPath" : "files/go/go.mod",
+  "symbols" : [ ]
+}, {
+  "path" : "package.json",
+  "sha256" : "a212ee8023e0cfb7e045aaedc26d0ef3c67182b78c802b743b253f14f842bcaa",
+  "language" : "JSON",
+  "loc" : 4,
+  "included" : true,
+  "reason" : "included",
+  "contentPath" : "files/package.json",
+  "symbols" : [ ]
+}, {
+  "path" : "py/worker.py",
+  "sha256" : "f30dd5e2e12fa96d5e840a9b252961ed4c6af74cc5b775325c1b1bdd1f222baa",
+  "language" : "Python",
+  "loc" : 16,
+  "included" : true,
+  "reason" : "included",
+  "contentPath" : "files/py/worker.py",
+  "symbols" : [ {
+    "type" : "class",
+    "name" : "Worker",
+    "qualifiedName" : "Worker",
+    "visibility" : "public"
+  }, {
+    "type" : "function",
+    "name" : "process",
+    "qualifiedName" : "process",
+    "visibility" : "public"
+  } ]
+}, {
+  "path" : "src/index.ts",
+  "sha256" : "e1017592a89ac3f9634bbc55451d900644f2e12f27a00e5eb6dd5fb0ccaed772",
+  "language" : "TypeScript",
+  "loc" : 8,
+  "included" : true,
+  "reason" : "included",
+  "contentPath" : "files/src/index.ts",
+  "symbols" : [ {
+    "type" : "function",
+    "name" : "main",
+    "qualifiedName" : "main",
+    "visibility" : "public"
+  } ]
+}, {
+  "path" : "src/util.js",
+  "sha256" : "1c69fe35701a9e9d2dbdfcf7ba6fb4c93d2fdc2268d1b71eeb7d28c78f9be529",
+  "language" : "JavaScript",
+  "loc" : 8,
+  "included" : true,
+  "reason" : "included",
+  "contentPath" : "files/src/util.js",
+  "symbols" : [ {
+    "type" : "function",
+    "name" : "formatMessage",
+    "qualifiedName" : "formatMessage",
+    "visibility" : "public"
+  } ]
+} ]

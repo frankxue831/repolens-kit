@@ -1,0 +1,27 @@
+{
+  "nodes" : [ {
+    "id" : "go/cmd/tool/main.go",
+    "symbols" : [ "main", "greet" ]
+  }, {
+    "id" : "go/go.mod",
+    "symbols" : [ ]
+  }, {
+    "id" : "package.json",
+    "symbols" : [ ]
+  }, {
+    "id" : "py/worker.py",
+    "symbols" : [ "Worker", "process" ]
+  }, {
+    "id" : "src/index.ts",
+    "symbols" : [ "main" ]
+  }, {
+    "id" : "src/util.js",
+    "symbols" : [ "formatMessage" ]
+  } ],
+  "edges" : [ {
+    "source" : "src/index.ts",
+    "target" : "src/util.js",
+    "type" : "imports",
+    "detail" : "./util"
+  } ]
+}

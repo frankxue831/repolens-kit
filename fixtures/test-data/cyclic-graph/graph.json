@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    { "id": "src/a.rs", "symbols": ["Foo"] },
+    { "id": "src/b.rs", "symbols": ["Bar"] },
+    { "id": "src/c.rs", "symbols": ["Baz"] },
+    { "id": "src/d.rs", "symbols": ["Qux"] },
+    { "id": "src/e.rs", "symbols": ["Quux"] },
+    { "id": "src/orphan.rs", "symbols": ["Orphan"] }
+  ],
+  "edges": [
+    { "source": "src/a.rs", "target": "src/b.rs", "type": "imports", "detail": "b::Bar" },
+    { "source": "src/b.rs", "target": "src/c.rs", "type": "extends", "detail": null },
+    { "source": "src/c.rs", "target": "src/a.rs", "type": "type_ref", "detail": "a::Foo" },
+    { "source": "src/d.rs", "target": "src/e.rs", "type": "imports", "detail": null },
+    { "source": "src/e.rs", "target": "src/d.rs", "type": "implements", "detail": null },
+    { "source": "src/a.rs", "target": "src/d.rs", "type": "calls", "detail": "d::method" }
+  ]
+}

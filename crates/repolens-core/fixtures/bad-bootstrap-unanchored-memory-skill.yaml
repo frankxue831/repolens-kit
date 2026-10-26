@@ -1,0 +1,38 @@
+version: "0.1"
+repo:
+  name: "repolens-rs"
+  root: "."
+commands:
+  build: "cargo build"
+  test: "cargo test"
+  fmt: "cargo fmt --all"
+  clippy: "cargo clippy --workspace --all-targets -- -D warnings"
+  scan: "cargo run -- scan --root ."
+  mcp: "cargo run -- mcp"
+taskTypes:
+  - "docs_only"
+allowPaths:
+  - "docs/**"
+denyPaths:
+  - ".git/**"
+requiredChecks:
+  docs_only: []
+memoryPolicy:
+  requireAnchors: true
+  rejectUnanchoredWrites: true
+trustPolicy:
+  repoUnderstanding: "repolens-first"
+  coldStartException: "explicit-and-narrow"
+  structuralEditMinimumGrade: "verified"
+  planningMinimumGrade: "derived"
+  unauditedUsage: "discuss-only"
+skills:
+  - id: "write_anchored_memory"
+    category: "memory"
+    purpose: "Invalid because it writes memory without anchor enforcement."
+    requiresRepoLens: true
+    allowsColdStart: false
+    allowedEvidenceGrades:
+      - "verified"
+    writesMemory: true
+    requiresAnchors: false

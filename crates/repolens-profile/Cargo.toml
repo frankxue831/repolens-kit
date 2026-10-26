@@ -1,0 +1,18 @@
+[package]
+name = "repolens-profile"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+repolens-core = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+rust_decimal = { workspace = true }

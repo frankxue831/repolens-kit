@@ -1,0 +1,40 @@
+version: "0.1"
+repo:
+  name: "repolens-rs"
+  root: "."
+commands:
+  build: "cargo build"
+  test: "cargo test"
+  fmt: "cargo fmt --all"
+  clippy: "cargo clippy --workspace --all-targets -- -D warnings"
+  scan: "cargo run -- scan --root ."
+  mcp: "cargo run -- mcp"
+taskTypes:
+  - "docs_only"
+allowPaths:
+  - "docs/**"
+denyPaths:
+  - ".git/**"
+requiredChecks:
+  docs_only: []
+  bonded_rust_change:
+    - "cargo fmt --all"
+memoryPolicy:
+  requireAnchors: true
+  rejectUnanchoredWrites: true
+trustPolicy:
+  repoUnderstanding: "repolens-first"
+  coldStartException: "explicit-and-narrow"
+  structuralEditMinimumGrade: "verified"
+  planningMinimumGrade: "derived"
+  unauditedUsage: "discuss-only"
+skills:
+  - id: "discover_repo_state"
+    category: "discovery"
+    purpose: "Only skill"
+    requiresRepoLens: true
+    allowsColdStart: true
+    allowedEvidenceGrades:
+      - "verified"
+    writesMemory: false
+    requiresAnchors: false

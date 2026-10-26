@@ -1,0 +1,188 @@
+docs:
+  - path: docs/product-canon.md
+    authority: Canonical
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [product, orientation]
+    read_order:
+      product: 0
+    summary: Root orientation entrypoint for product identity, philosophy, and canonical reading order.
+
+  - path: docs/engineering-canon.md
+    authority: Canonical
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [engineering, orientation]
+    read_order:
+      engineering: 0
+    summary: Root orientation entrypoint for runtime boundaries, status vocabulary, and engineering reading order.
+
+  - path: docs/philosophy/00-status.md
+    authority: Canonical
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [product, status]
+    read_order:
+      product: 1
+    summary: Current status, established principles, open questions, and philosophy document index.
+
+  - path: docs/philosophy/01-background-and-mission.md
+    authority: Canonical
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [product, mission]
+    read_order:
+      product: 2
+    summary: Why RepoLens exists, what it promises, and the core principles behind the product.
+
+  - path: docs/philosophy/02-research-landscape.md
+    authority: Supporting
+    lifecycle: Reference
+    audience: [maintainers, agents]
+    area: [product, research]
+    summary: Research and industry landscape background for the RepoLens problem space.
+
+  - path: docs/philosophy/03-deep-reasons.md
+    authority: Supporting
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [product, rationale]
+    summary: Deeper rationale behind the project’s design principles and modeling choices.
+
+  - path: docs/philosophy/04-current-boundaries.md
+    authority: Historical
+    lifecycle: Frozen
+    frozen_as_of: "2026-04-04"
+    audience: [maintainers, agents]
+    area: [product, boundaries]
+    summary: Frozen point-in-time observation-vs-interpretation analysis preserved for historical context.
+
+  - path: docs/philosophy/05-structure-and-tensions.md
+    authority: Canonical
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [product, structure]
+    read_order:
+      product: 5
+    summary: Conceptual-integrity and structure/tension analysis, with legacy sections explicitly marked in place.
+
+  - path: docs/philosophy/06-observation-invariants-and-grounding-eligibility.md
+    authority: Canonical
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [product, trust]
+    read_order:
+      product: 6
+      engineering: 2
+    summary: Trust contract for observation invariants, grounding eligibility, and evidence-grade gating.
+
+  - path: docs/philosophy/07-current-state-vs-direction.md
+    authority: Canonical
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [product, runtime]
+    read_order:
+      product: 3
+      engineering: 1
+    summary: Canonical shipped-vs-direction reference for current RepoLens behavior.
+
+  - path: docs/philosophy/08-taxonomy.md
+    authority: Canonical
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [product, taxonomy]
+    read_order:
+      product: 4
+    summary: Canonical reconciliation of storage tier, claim-production layer, trust state, and retention/ranking state.
+
+  - path: docs/philosophy/deep-research-report.md
+    authority: Supporting
+    lifecycle: Reference
+    audience: [maintainers, agents]
+    area: [product, research]
+    summary: Long-form research synthesis used as background material, not live operational canon. Inline citation markers from the original export couldn't be resolved and were removed on 2026-10-27, so claims that don't name their source are unverified.
+
+  - path: docs/philosophy/Mathematics of Structured Perception for RepoLens-Style Agentic Code Understanding.md
+    authority: Supporting
+    lifecycle: Reference
+    audience: [maintainers, agents]
+    area: [product, research]
+    summary: Mathematical exploration document preserved as reference material rather than current canon. Inline citation markers from the original export couldn't be resolved and were removed on 2026-10-27, so claims that don't name their source are unverified.
+
+  - path: docs/philosophy/notes/2026-04-14-arc-review-and-next-steps.md
+    authority: Historical
+    lifecycle: Frozen
+    frozen_as_of: "2026-04-14"
+    audience: [maintainers, agents]
+    area: [product, notes]
+    summary: Historical retrospective on the observation-invariant and evidence-grade arc.
+
+  - path: docs/philosophy/notes/2026-04-14-self-bootstrap-phase1-landed.md
+    authority: Historical
+    lifecycle: Frozen
+    frozen_as_of: "2026-04-14"
+    audience: [maintainers, agents]
+    area: [product, notes]
+    summary: Historical milestone note for the self-bootstrap Phase 1 landing.
+
+  - path: docs/philosophy/notes/2026-04-20-first-dogfood-snapshot-pr-26.md
+    authority: Historical
+    lifecycle: Frozen
+    frozen_as_of: "2026-04-20"
+    audience: [maintainers, agents]
+    area: [product, notes]
+    summary: First manual workflow-closure dogfood snapshot, run against PR #26; surfaces friction evidence to scope the helper-plus-checklist plan.
+
+  - path: docs/philosophy/notes/2026-04-22-first-agent-eval-run.md
+    authority: Historical
+    lifecycle: Frozen
+    frozen_as_of: "2026-04-22"
+    audience: [maintainers, agents]
+    area: [product, notes]
+    summary: First answered run of the first-agent eval contract, exercised on main post-merge of PR #33; records FAC-001..FAC-005 answers and the three friction tags worth tracking across future runs.
+
+  - path: docs/philosophy/notes/2026-04-23-first-agent-eval-baseline.md
+    authority: Historical
+    lifecycle: Frozen
+    frozen_as_of: "2026-04-23"
+    audience: [maintainers, agents]
+    area: [product, notes]
+    summary: Baseline re-run of the first-agent eval on main at the same commit as 2026-04-22; confirms reproducibility, documents durable friction tags, and explicitly does not count toward the "2-3 qualifying PR runs" threshold.
+
+  - path: docs/philosophy/notes/2026-06-04-optimization-roadmap-closeout.md
+    authority: Historical
+    lifecycle: Frozen
+    frozen_as_of: "2026-06-04"
+    audience: [maintainers, agents]
+    area: [engineering, notes]
+    summary: Historical closeout of the maintainability + performance roadmap (PRs #78–#88); records shipped slices, measured deltas, and the evidence-based declines (M3 MCP wrapper, parser reuse, Go-path index).
+
+  - path: docs/superpowers/specs/2026-04-11-wiki-compiled-knowledge-layer-design.md
+    authority: Supporting
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [engineering, wiki]
+    read_order:
+      engineering: 5
+    summary: Wiki-layer design spec with taxonomy framing normalized to defer to doc 08.
+
+  - path: docs/superpowers/specs/2026-05-11-evidence-aware-findings.md
+    authority: Supporting
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [engineering, reporting]
+    summary: Phase 1 trust-calibration spec — evidence-aware finding model, indicator-conditional notChecked, calibration block, and softened legacy strings; preserves pack/MCP JSON compatibility.
+
+  - path: docs/superpowers/specs/2026-05-11-test-file-detection-invariant-catalogue.md
+    authority: Supporting
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [engineering, reporting]
+    summary: Invariant catalogue for the path-string test-file classifier (`is_test_file`); 8 invariants covering Rust/Java/Python/Go/JS-TS patterns plus the contest/manifest false-positive regression. Unlocks F-TEST-INVENTORY-RATIO and F-DELTA-TEST-FILE-RATIO promotion.
+
+  - path: docs/superpowers/specs/2026-05-11-lockfile-state-invariant-catalogue.md
+    authority: Supporting
+    lifecycle: Living
+    audience: [maintainers, agents]
+    area: [engineering, reporting]
+    summary: Invariant catalogue for `CargoLockStateDetector` with 7 invariants over the four CargoLockState variants plus the .gitignore comment/trailing-slash/anchored edge cases. Pins the no-CommittedAndTracked-emission Phase-1 limitation. Unlocks F-CARGO-LOCK-STATE promotion.

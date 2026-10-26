@@ -1,0 +1,22 @@
+---
+source: crates/repolens-core/tests/pack_contract_test.rs
+expression: json
+---
+{
+  "schemaVersion": "1.3.0",
+  "schemaUrl": "https://example.com/schema/1.3.0",
+  "timestamp": 1774753241.321919000,
+  "chunks": [
+    "files-0001.json"
+  ],
+  "scanMode": "full",
+  "scanScope": "complete",
+  "basePackId": null,
+  "baseHeadCommit": null,
+  "headCommit": "7f9ccf83a2556e4f47cf0c4dae9ed0fac0fda238",
+  "worktreeDirty": false,
+  "scanConfigHash": "0ec3aa878fafd15e057dda00e38b114a037c788bcd2f083217fee95bb1bc98ed",
+  "reprocessedFiles": 38,
+  "deletedFiles": null,
+  "carriedForwardFiles": null
+}

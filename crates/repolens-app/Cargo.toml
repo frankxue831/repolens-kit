@@ -1,0 +1,32 @@
+[package]
+name = "repolens-app"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+repolens-core = { workspace = true }
+repolens-extract = { workspace = true }
+repolens-memory = { workspace = true }
+repolens-profile = { workspace = true }
+repolens-wiki = { workspace = true }
+anyhow = { workspace = true }
+rayon = { workspace = true }
+uuid = { workspace = true }
+tracing = { workspace = true }
+time = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+regex = { workspace = true }
+once_cell = { workspace = true }
+petgraph = { workspace = true }
+fs4 = { workspace = true }
+
+[dev-dependencies]
+insta = { workspace = true }
+tempfile = { workspace = true }
+rust_decimal = { workspace = true }

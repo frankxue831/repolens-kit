@@ -1,0 +1,51 @@
+name: Dogfood finding
+description: Something that broke or felt wrong while using RepoLens on a real repo.
+title: "[dogfood] "
+labels: ["dogfood"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep raw output in this issue only (never in a gist) while the repo is private.
+        Known issue, don't refile: #8 (memory save ignores REPOLENS_CLOCK_OVERRIDE).
+  - type: input
+    id: repo
+    attributes:
+      label: Repo you ran it on
+      placeholder: gm-crypto-rs @ <commit>
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Command
+      placeholder: repolens findings
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: init
+    attributes:
+      label: Raw `repolens init` output
+      render: text
+  - type: dropdown
+    id: top3
+    attributes:
+      label: Did the top 3 findings tell you something true and new about this repo?
+      options: ["Yes", "No", "Meh"]
+  - type: input
+    id: version
+    attributes:
+      label: RepoLens commit
+      placeholder: output of `repolens --version` or the main commit you installed

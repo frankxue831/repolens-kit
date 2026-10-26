@@ -1,0 +1,25 @@
+{
+  "name" : "excluded-small",
+  "buildSystem" : null,
+  "frameworks" : [ ],
+  "projectType" : "UNKNOWN",
+  "entryPoints" : [ ],
+  "description" : null,
+  "languageDistribution" : {
+    "Python" : 10,
+    "Unknown" : 3
+  },
+  "modules" : [ {
+    "name" : "src",
+    "path" : "src",
+    "fileCount" : 1,
+    "loc" : 10,
+    "primaryLanguage" : "Python"
+  }, {
+    "name" : ".",
+    "path" : ".",
+    "fileCount" : 1,
+    "loc" : 3,
+    "primaryLanguage" : "Unknown"
+  } ]
+}

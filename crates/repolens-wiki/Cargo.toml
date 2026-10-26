@@ -1,0 +1,24 @@
+[package]
+name = "repolens-wiki"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+repolens-core = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_yaml = "0.9"
+time = { workspace = true }
+uuid = { workspace = true }
+tracing = { workspace = true }
+anyhow = { workspace = true }
+tantivy = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+rust_decimal = { workspace = true }

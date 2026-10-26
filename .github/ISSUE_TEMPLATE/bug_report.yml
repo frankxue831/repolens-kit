@@ -1,0 +1,42 @@
+name: Bug report
+description: Something in RepoLens doesn't work as documented.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you ran, what you expected, and what you got instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. repolens scan --root .
+        2. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: RepoLens version or commit
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: OS and Rust version
+      placeholder: "macOS 15, rustc 1.xx"
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Area
+      options: [CLI, MCP server, Memory, Scan / packs, Eval, Docs, Other]
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or output
+      description: Remove any absolute paths or private details first.
+      render: text

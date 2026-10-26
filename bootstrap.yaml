@@ -1,0 +1,118 @@
+version: "0.1"
+repo:
+  name: "repolens-rs"
+  root: "."
+commands:
+  build:
+    - "cargo"
+    - "build"
+  test:
+    - "cargo"
+    - "test"
+  fmt:
+    - "cargo"
+    - "fmt"
+    - "--all"
+  clippy:
+    - "cargo"
+    - "clippy"
+    - "--workspace"
+    - "--all-targets"
+    - "--"
+    - "-D"
+    - "warnings"
+  scan:
+    - "cargo"
+    - "run"
+    - "--"
+    - "scan"
+    - "--root"
+    - "."
+  mcp:
+    - "cargo"
+    - "run"
+    - "--"
+    - "mcp"
+taskTypes:
+  - "docs_only"
+  - "trust_contract"
+  - "bounded_rust_change"
+allowPaths:
+  - "docs/**"
+  - "crates/**"
+  - "Cargo.toml"
+  - "Cargo.lock"
+  - "AGENTS.md"
+  - "CLAUDE.md"
+denyPaths:
+  - ".git/**"
+  - "target/**"
+requiredChecks:
+  docs_only: []
+  trust_contract:
+    - "cargo fmt --all"
+  bounded_rust_change:
+    - "cargo fmt --all"
+    - "cargo clippy --workspace --all-targets -- -D warnings"
+    - "cargo test --workspace"
+memoryPolicy:
+  requireAnchors: true
+  rejectUnanchoredWrites: true
+trustPolicy:
+  repoUnderstanding: "repolens-first"
+  coldStartException: "explicit-and-narrow"
+  structuralEditMinimumGrade: "verified"
+  planningMinimumGrade: "derived"
+  unauditedUsage: "discuss-only"
+skills:
+  - id: "discover_repo_state"
+    category: "discovery"
+    purpose: "Determine whether RepoLens perception is usable for the current task."
+    requiresRepoLens: true
+    allowsColdStart: true
+    allowedEvidenceGrades:
+      - "verified"
+      - "derived"
+    writesMemory: false
+    requiresAnchors: false
+  - id: "plan_with_trust"
+    category: "planning"
+    purpose: "Produce a bounded plan that classifies evidence by grade."
+    requiresRepoLens: true
+    allowsColdStart: false
+    allowedEvidenceGrades:
+      - "verified"
+      - "derived"
+    writesMemory: false
+    requiresAnchors: false
+  - id: "execute_bounded_change"
+    category: "execution"
+    purpose: "Carry out a scoped change with explicit path and success boundaries."
+    requiresRepoLens: false
+    allowsColdStart: false
+    allowedEvidenceGrades:
+      - "verified"
+      - "derived"
+    writesMemory: false
+    requiresAnchors: false
+  - id: "verify_and_rescan"
+    category: "verification"
+    purpose: "Verify the change with commands and RepoLens observation where feasible."
+    requiresRepoLens: true
+    allowsColdStart: true
+    allowedEvidenceGrades:
+      - "verified"
+      - "derived"
+      - "unaudited"
+    writesMemory: false
+    requiresAnchors: false
+  - id: "write_anchored_memory"
+    category: "memory"
+    purpose: "Persist only durable findings that have explicit anchors."
+    requiresRepoLens: true
+    allowsColdStart: false
+    allowedEvidenceGrades:
+      - "verified"
+      - "derived"
+    writesMemory: true
+    requiresAnchors: true

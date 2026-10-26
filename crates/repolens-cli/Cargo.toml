@@ -1,0 +1,37 @@
+[package]
+name = "repolens-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "repolens"
+path = "src/main.rs"
+
+[dependencies]
+repolens-app = { workspace = true }
+repolens-mcp = { workspace = true }
+repolens-wiki = { workspace = true }
+repolens-core = { workspace = true }
+repolens-memory = { workspace = true }
+anyhow = { workspace = true }
+clap = { workspace = true }
+once_cell = { workspace = true }
+regex = { workspace = true }
+serde_json = { workspace = true }
+time = { workspace = true, features = ["macros"] }
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+gix = { workspace = true }
+sha2 = { workspace = true }
+hex = { workspace = true }
+unicode-width = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }

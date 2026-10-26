@@ -1,0 +1,16 @@
+{
+  "schemaVersion" : "1.3.0",
+  "schemaUrl" : "https://example.com/schema/1.3.0",
+  "timestamp" : 1774753251.541271000,
+  "chunks" : [ "files-0001.json" ],
+  "scanMode" : "full",
+  "scanScope" : "complete",
+  "basePackId" : null,
+  "baseHeadCommit" : null,
+  "headCommit" : "5385716542b37ae59c68e7a23ecab0f2fc2e7e5f",
+  "worktreeDirty" : false,
+  "scanConfigHash" : "0ec3aa878fafd15e057dda00e38b114a037c788bcd2f083217fee95bb1bc98ed",
+  "reprocessedFiles" : 33,
+  "deletedFiles" : null,
+  "carriedForwardFiles" : null
+}

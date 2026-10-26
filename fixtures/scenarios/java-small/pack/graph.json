@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "README.md",
+      "symbols": []
+    },
+    {
+      "id": "pom.xml",
+      "symbols": []
+    },
+    {
+      "id": "src/main/java/com/example/App.java",
+      "symbols": [
+        "App",
+        "main",
+        "run"
+      ]
+    },
+    {
+      "id": "src/main/java/com/example/Helper.java",
+      "symbols": [
+        "Helper",
+        "greet"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "src/main/java/com/example/App.java",
+      "target": "src/main/java/com/example/Helper.java",
+      "type": "imports",
+      "detail": "com.example.Helper"
+    },
+    {
+      "source": "src/main/java/com/example/App.java",
+      "target": "src/main/java/com/example/Helper.java",
+      "type": "calls",
+      "detail": "helper.greet"
+    },
+    {
+      "source": "src/main/java/com/example/App.java",
+      "target": "src/main/java/com/example/Helper.java",
+      "type": "type_ref",
+      "detail": "Helper"
+    }
+  ]
+}

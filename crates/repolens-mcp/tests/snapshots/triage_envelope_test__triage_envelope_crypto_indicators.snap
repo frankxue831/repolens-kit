@@ -1,0 +1,148 @@
+---
+source: crates/repolens-mcp/tests/triage_envelope_test.rs
+expression: json
+---
+{
+  "calibration": {
+    "guidance": "evidenceFindings carry per-finding evidence grade, knowledge layer, inference, limitations, and repo context. Legacy fields lack per-finding calibration and may overclaim. Prefer evidenceFindings when present.",
+    "legacyFields": [
+      "signals",
+      "dependencyRisk"
+    ],
+    "preferred": "evidenceFindings"
+  },
+  "dependencyRisk": {},
+  "notChecked": [
+    {
+      "code": "RUNTIME_BEHAVIOR",
+      "detail": "RepoLens does not execute the code; runtime behaviour is out of scope.",
+      "trigger": {
+        "kind": "always"
+      }
+    },
+    {
+      "code": "TEST_PASS_FAIL",
+      "detail": "RepoLens does not run tests. Whether tests pass, fail, or compile is out of scope.",
+      "trigger": {
+        "kind": "always"
+      }
+    },
+    {
+      "code": "RELEASE_READINESS",
+      "detail": "RepoLens does not assess release readiness, deployment safety, or rollout suitability.",
+      "trigger": {
+        "kind": "always"
+      }
+    },
+    {
+      "code": "SECURITY_AUDIT_GENERIC",
+      "detail": "RepoLens is not a security audit. Vulnerabilities, misconfiguration, and threat modelling are out of scope.",
+      "trigger": {
+        "kind": "always"
+      }
+    },
+    {
+      "code": "LICENSE_COMPATIBILITY",
+      "detail": "RepoLens does not analyse license compatibility across the dependency tree.",
+      "trigger": {
+        "kind": "always"
+      }
+    },
+    {
+      "code": "EXTERNAL_DEPENDENCY_VERSIONS",
+      "detail": "RepoLens does not check external dependency versions, vulnerabilities, or yanked status.",
+      "trigger": {
+        "kind": "always"
+      }
+    },
+    {
+      "code": "LOCKFILE_FRESHNESS",
+      "detail": "RepoLens does not verify whether lockfiles are current with respect to the manifest they pin.",
+      "trigger": {
+        "kind": "always"
+      }
+    },
+    {
+      "code": "LOCKFILE_GENERATION_OUT_OF_SCOPE",
+      "detail": "RepoLens does not run cargo, npm, pip, or any package manager. Lockfile generation is out of scope.",
+      "trigger": {
+        "kind": "always"
+      }
+    },
+    {
+      "code": "CHANGE_SAFETY",
+      "detail": "RepoLens does not predict the safety of code changes; refactoring impact must be assessed by the agent or developer.",
+      "trigger": {
+        "kind": "always"
+      }
+    },
+    {
+      "code": "MANIFEST_AND_LOCKFILE_LIVE_ROOT_DERIVED",
+      "detail": "Manifest dependency names (Cargo.toml, package.json, etc.) and lockfile state are read from the live working tree at report time, not from the pack snapshot. When summarizing or comparing older packs, indicator-tag-driven findings and the cargo-lock state may diverge from what was originally scanned.",
+      "trigger": {
+        "kind": "always"
+      }
+    },
+    {
+      "code": "CRYPTO_CORRECTNESS",
+      "detail": "RepoLens does not verify cryptographic correctness, primitive choice, or known-bad construction patterns.",
+      "trigger": {
+        "kind": "whenIndicator",
+        "tag": {
+          "kind": "cryptoIndicators"
+        }
+      }
+    },
+    {
+      "code": "CONSTANT_TIME",
+      "detail": "RepoLens does not perform constant-time analysis on cryptographic code paths.",
+      "trigger": {
+        "kind": "whenIndicator",
+        "tag": {
+          "kind": "cryptoIndicators"
+        }
+      }
+    },
+    {
+      "code": "TIMING_LEAKAGE",
+      "detail": "RepoLens does not detect timing side-channels in cryptographic code paths.",
+      "trigger": {
+        "kind": "whenIndicator",
+        "tag": {
+          "kind": "cryptoIndicators"
+        }
+      }
+    },
+    {
+      "code": "FUZZING_RESULTS",
+      "detail": "RepoLens does not run fuzzers. Fuzzing campaign results, corpus coverage, and discovered crashes are out of scope.",
+      "trigger": {
+        "kind": "whenIndicator",
+        "tag": {
+          "kind": "cryptoIndicators"
+        }
+      }
+    },
+    {
+      "code": "MSRV",
+      "detail": "RepoLens does not verify the minimum supported Rust version (MSRV) declared in Cargo.toml against actual code or dependencies.",
+      "trigger": {
+        "kind": "whenIndicator",
+        "tag": {
+          "kind": "rustLibrary"
+        }
+      }
+    }
+  ],
+  "signals": [],
+  "structure": {
+    "moduleCount": 1
+  },
+  "triageHeader": {
+    "reportKind": "structuralTriage",
+    "scope": {
+      "generatedAt": "2026-05-11T00:00:00Z",
+      "packId": "pack-test"
+    }
+  }
+}

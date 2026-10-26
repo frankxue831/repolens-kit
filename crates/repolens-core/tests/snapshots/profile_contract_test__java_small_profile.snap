@@ -1,0 +1,44 @@
+---
+source: crates/repolens-core/tests/profile_contract_test.rs
+assertion_line: 148
+expression: json
+---
+{
+  "name": "java-small",
+  "buildSystem": {
+    "name": "Maven",
+    "details": null,
+    "configFile": "pom.xml"
+  },
+  "frameworks": [],
+  "projectType": "CLI",
+  "entryPoints": [
+    {
+      "type": "main",
+      "path": "src/main/java/com/example/App.java",
+      "description": "Contains public static void main"
+    }
+  ],
+  "description": "A minimal Java fixture repo used to validate RepoLens scanning of Java source files.",
+  "languageDistribution": {
+    "Java": 31,
+    "Markdown": 8,
+    "XML": 17
+  },
+  "modules": [
+    {
+      "name": "src",
+      "path": "src",
+      "fileCount": 2,
+      "loc": 31,
+      "primaryLanguage": "Java"
+    },
+    {
+      "name": ".",
+      "path": ".",
+      "fileCount": 2,
+      "loc": 25,
+      "primaryLanguage": "XML"
+    }
+  ]
+}

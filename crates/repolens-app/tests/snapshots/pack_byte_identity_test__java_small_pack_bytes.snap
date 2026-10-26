@@ -1,0 +1,332 @@
+---
+source: crates/repolens-app/tests/pack_byte_identity_test.rs
+assertion_line: 212
+expression: "render_pack_golden(\"java-small\")"
+---
+===== files-0001.json =====
+[
+  {
+    "path": "README.md",
+    "sha256": "96f4b4aa866a15d0d81b898ba365335e538140fedcd86468434c34f3064be1da",
+    "language": "Markdown",
+    "loc": 8,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/README.md",
+    "symbols": []
+  },
+  {
+    "path": "pom.xml",
+    "sha256": "bd7ef6801a214c464d6d74f7a89fe05d97c6287c170dc511884e2e766c3ab213",
+    "language": "XML",
+    "loc": 17,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/pom.xml",
+    "symbols": []
+  },
+  {
+    "path": "src/main/java/com/example/App.java",
+    "sha256": "46d0b56263db3b3ed6fd494683140e5d5f818ec3028ae21ddbf504da43e5bc2c",
+    "language": "Java",
+    "loc": 20,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/src/main/java/com/example/App.java",
+    "symbols": [
+      {
+        "type": "class",
+        "name": "App",
+        "qualifiedName": "com.example.App",
+        "visibility": "public"
+      },
+      {
+        "type": "method",
+        "name": "main",
+        "qualifiedName": "void main(String[])",
+        "visibility": "public"
+      },
+      {
+        "type": "method",
+        "name": "run",
+        "qualifiedName": "String run(String)",
+        "visibility": "public"
+      }
+    ]
+  },
+  {
+    "path": "src/main/java/com/example/Helper.java",
+    "sha256": "9270e17bb9ee5e1c338d74e992a9f84cfc6c4411c834dba8648415dc58d921a4",
+    "language": "Java",
+    "loc": 11,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/src/main/java/com/example/Helper.java",
+    "symbols": [
+      {
+        "type": "class",
+        "name": "Helper",
+        "qualifiedName": "com.example.Helper",
+        "visibility": "public"
+      },
+      {
+        "type": "method",
+        "name": "greet",
+        "qualifiedName": "String greet(String)",
+        "visibility": "public"
+      }
+    ]
+  }
+]
+===== graph-metrics.json =====
+{
+  "totalRelationships": 3,
+  "resolvedEdges": 3,
+  "unresolvedEdges": 0,
+  "perLanguage": {
+    "Java": [
+      3,
+      0
+    ]
+  }
+}
+===== graph.json =====
+{
+  "nodes": [
+    {
+      "id": "README.md",
+      "symbols": []
+    },
+    {
+      "id": "pom.xml",
+      "symbols": []
+    },
+    {
+      "id": "src/main/java/com/example/App.java",
+      "symbols": [
+        "App",
+        "main",
+        "run"
+      ]
+    },
+    {
+      "id": "src/main/java/com/example/Helper.java",
+      "symbols": [
+        "Helper",
+        "greet"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "src/main/java/com/example/App.java",
+      "target": "src/main/java/com/example/Helper.java",
+      "type": "imports",
+      "detail": "com.example.Helper"
+    },
+    {
+      "source": "src/main/java/com/example/App.java",
+      "target": "src/main/java/com/example/Helper.java",
+      "type": "type_ref",
+      "detail": "Helper"
+    },
+    {
+      "source": "src/main/java/com/example/App.java",
+      "target": "src/main/java/com/example/Helper.java",
+      "type": "calls",
+      "detail": "helper.greet"
+    }
+  ]
+}
+===== project-profile.json =====
+{
+  "buildSystem": {
+    "configFile": "pom.xml",
+    "details": null,
+    "name": "Maven"
+  },
+  "description": null,
+  "entryPoints": [
+    {
+      "description": "Java main method",
+      "path": "src/main/java/com/example/App.java",
+      "type": "main"
+    }
+  ],
+  "frameworks": [],
+  "health": {
+    "dependencyRisk": {
+      "buildSystem": "Maven",
+      "frameworkCount": 0,
+      "lockfilePresent": false,
+      "missingVersionCount": 0,
+      "riskLevel": "low"
+    },
+    "evidenceFindings": [
+      {
+        "action": {
+          "kind": "noAction"
+        },
+        "classification": "informational",
+        "confidence": "codified",
+        "evidence": [
+          {
+            "invariantId": "I-GRAPH-ORPHANS-RESPECT-ENTRY-POINTS",
+            "kind": "observation",
+            "metric": "graph.orphanCount",
+            "observedValue": {
+              "graphOrphanCount": 2,
+              "loadedByNameCount": 0,
+              "sourceOrphanCount": 0
+            },
+            "sourcePaths": [
+              "README.md",
+              "pom.xml"
+            ],
+            "sourceType": {
+              "kind": "importGraph"
+            }
+          }
+        ],
+        "evidenceGrade": "derived",
+        "id": "F-ORPHAN-FILES",
+        "inference": {
+          "dependsOn": [
+            "filter:nonOrphanSource",
+            "sampleComplete=true"
+          ],
+          "doesNotImply": [
+            "unused source code is present",
+            "unused source code is absent"
+          ],
+          "statement": "Every file that no other file imports is one that tools load by name or that isn't code: tests, build scripts, configs, docs, examples, fixtures, snapshots, or a crate-root lib.rs. None looks unused.",
+          "strength": "strong"
+        },
+        "knowledgeLayer": "observation",
+        "limitations": [
+          {
+            "code": "DOCS_AND_CONFIG_NOT_TREATED_AS_SOURCE",
+            "detail": "Root manifests, policy docs, READMEs, CI config files, editor / agent config dirs, Cargo integration tests / benches / examples / build scripts, test files found by a test runner's naming rules (pytest, unittest, JUnit, go test, Jest/Vitest), tool configs, example and benchmark folders, fixture data files, insta snapshots, and crate-root lib.rs library entry points are not treated as source files for orphan analysis."
+          }
+        ],
+        "repoContext": [
+          {
+            "kind": "javaApplication"
+          }
+        ],
+        "scope": {
+          "time": {
+            "packId": "pack-CANONICAL"
+          }
+        },
+        "severity": "none",
+        "title": "No unused files found (imports only)"
+      },
+      {
+        "action": {
+          "kind": "reviewIfMaintainerPain"
+        },
+        "classification": "informational",
+        "confidence": "codified",
+        "evidence": [
+          {
+            "kind": "observation",
+            "metric": "structure.dominantModule",
+            "observedValue": "src",
+            "sourcePaths": [
+              "src"
+            ],
+            "sourceType": {
+              "kind": "projectProfile"
+            }
+          },
+          {
+            "kind": "observation",
+            "metric": "structure.moduleCount",
+            "observedValue": 1,
+            "sourceType": {
+              "kind": "projectProfile"
+            }
+          },
+          {
+            "kind": "heuristicJudgment",
+            "observedMetric": "structure.dominantModuleShare",
+            "observedValue": 1.0,
+            "rationale": "Heuristic threshold; not justified by an invariant. In some repos this concentration is intentional.",
+            "rule": "structure.dominantModuleShare > 0.8",
+            "threshold": 0.8
+          }
+        ],
+        "evidenceGrade": "derived",
+        "id": "F-DOMINANT-MODULE",
+        "inference": {
+          "dependsOn": [
+            "threshold:dominantModuleShare>0.8"
+          ],
+          "doesNotImply": [
+            "the module is too large",
+            "splitting the module would improve maintainability",
+            "the module is poorly structured"
+          ],
+          "statement": "Module 'src' contains 100% of total LOC across 1 top-level modules.",
+          "strength": "suggestive"
+        },
+        "knowledgeLayer": "heuristic",
+        "limitations": [
+          {
+            "code": "DOMINANT_MODULE_THRESHOLD_HEURISTIC",
+            "detail": "The 0.8 share threshold is a heuristic. Single-crate libraries, monorepo anchors, and vendored sources legitimately concentrate LOC in one module."
+          }
+        ],
+        "repoContext": [
+          {
+            "kind": "javaApplication"
+          }
+        ],
+        "scope": {
+          "paths": [
+            "src"
+          ],
+          "time": {
+            "packId": "pack-CANONICAL"
+          }
+        },
+        "severity": "low",
+        "title": "Dominant module: 'src' holds 100% of LOC"
+      }
+    ],
+    "graphHealth": {
+      "cycleCount": 0,
+      "filesInCyclesCount": 0,
+      "largestCycleSize": 0,
+      "orphanCount": 2,
+      "orphanFiles": [
+        "README.md",
+        "pom.xml"
+      ],
+      "testToSourceRatio": 0.0
+    },
+    "structure": {
+      "dominantModule": "src",
+      "dominantModuleShare": 1.0,
+      "entryPointCount": 1,
+      "moduleCount": 1
+    }
+  },
+  "languageDistribution": {
+    "Java": 31,
+    "Markdown": 8,
+    "XML": 17
+  },
+  "modules": [
+    {
+      "fileCount": 2,
+      "loc": 31,
+      "name": "src",
+      "path": "src",
+      "primaryLanguage": "Java"
+    }
+  ],
+  "name": "java-small",
+  "projectType": "CLI"
+}

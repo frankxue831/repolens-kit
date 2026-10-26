@@ -1,0 +1,368 @@
+[ {
+  "path" : ".git/COMMIT_EDITMSG",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/HEAD",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/config",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/description",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/applypatch-msg.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/commit-msg.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/fsmonitor-watchman.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/post-update.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-applypatch.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-commit.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-merge-commit.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-push.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-rebase.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/pre-receive.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/prepare-commit-msg.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/push-to-checkout.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/sendemail-validate.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/hooks/update.sample",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/index",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/info/exclude",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/logs/HEAD",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/logs/refs/heads/master",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/05/c071abd14fd569d97c7f060354b6c32369793e",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/19/bbe1c86dd802778825c008400f8ad252902f39",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/25/33866444741e94ae39814e473b5f06c67a2a09",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/30/edfeaf3dbab6991ac5ce00ecddc0c977d5c4cf",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/45/38468bd64023687c1c067f0745d12b8bacb2a3",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/7f/9ccf83a2556e4f47cf0c4dae9ed0fac0fda238",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/99/b032b180fd3996f1324394ffbab6ab241341bd",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/bf/295bbf1bb8f112c1ad5dfbdeadfbdb21f7add9",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/c8/499a76229f146fcc17dd58218157e4217c7234",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/da/421a4f431ba52d33dec1aa92521529416ac6bc",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/objects/e5/3a387b00825f50990b71a09bd3810ff6d46acf",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : ".git/refs/heads/master",
+  "sha256" : "",
+  "language" : "",
+  "loc" : 0,
+  "included" : false,
+  "reason" : "excluded:git",
+  "contentPath" : null,
+  "symbols" : [ ]
+}, {
+  "path" : "README.md",
+  "sha256" : "96f4b4aa866a15d0d81b898ba365335e538140fedcd86468434c34f3064be1da",
+  "language" : "Markdown",
+  "loc" : 8,
+  "included" : true,
+  "reason" : "included",
+  "contentPath" : "files/README.md",
+  "symbols" : [ ]
+}, {
+  "path" : "pom.xml",
+  "sha256" : "bd7ef6801a214c464d6d74f7a89fe05d97c6287c170dc511884e2e766c3ab213",
+  "language" : "XML",
+  "loc" : 17,
+  "included" : true,
+  "reason" : "included",
+  "contentPath" : "files/pom.xml",
+  "symbols" : [ ]
+}, {
+  "path" : "src/main/java/com/example/App.java",
+  "sha256" : "46d0b56263db3b3ed6fd494683140e5d5f818ec3028ae21ddbf504da43e5bc2c",
+  "language" : "Java",
+  "loc" : 20,
+  "included" : true,
+  "reason" : "included",
+  "contentPath" : "files/src/main/java/com/example/App.java",
+  "symbols" : [ {
+    "type" : "class",
+    "name" : "App",
+    "qualifiedName" : "com.example.App",
+    "visibility" : "public"
+  }, {
+    "type" : "method",
+    "name" : "main",
+    "qualifiedName" : "void main(String[])",
+    "visibility" : "public"
+  }, {
+    "type" : "method",
+    "name" : "run",
+    "qualifiedName" : "String run(String)",
+    "visibility" : "public"
+  } ]
+}, {
+  "path" : "src/main/java/com/example/Helper.java",
+  "sha256" : "9270e17bb9ee5e1c338d74e992a9f84cfc6c4411c834dba8648415dc58d921a4",
+  "language" : "Java",
+  "loc" : 11,
+  "included" : true,
+  "reason" : "included",
+  "contentPath" : "files/src/main/java/com/example/Helper.java",
+  "symbols" : [ {
+    "type" : "class",
+    "name" : "Helper",
+    "qualifiedName" : "com.example.Helper",
+    "visibility" : "public"
+  }, {
+    "type" : "method",
+    "name" : "greet",
+    "qualifiedName" : "String greet(String)",
+    "visibility" : "public"
+  } ]
+} ]

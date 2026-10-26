@@ -1,0 +1,507 @@
+---
+source: crates/repolens-app/tests/pack_byte_identity_test.rs
+assertion_line: 207
+expression: "render_pack_golden(\"rust-small\")"
+---
+===== files-0001.json =====
+[
+  {
+    "path": "Cargo.toml",
+    "sha256": "4f2c696f8ba696bd3633c54f9738345c17711c5d7edf028ece484e939463a4e0",
+    "language": "TOML",
+    "loc": 3,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/Cargo.toml",
+    "symbols": []
+  },
+  {
+    "path": "crates/alpha/Cargo.toml",
+    "sha256": "7952cf92cf174a94fe88092697617552f6f8c3d522e6b6ca13ca846e489d2219",
+    "language": "TOML",
+    "loc": 4,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/crates/alpha/Cargo.toml",
+    "symbols": []
+  },
+  {
+    "path": "crates/alpha/src/greet.rs",
+    "sha256": "ba5580d871ba34bd81d00f8002c26f15cbcb3436ec2ba90df39d4a198f44f6e2",
+    "language": "Rust",
+    "loc": 3,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/crates/alpha/src/greet.rs",
+    "symbols": [
+      {
+        "type": "function",
+        "name": "hello",
+        "qualifiedName": "hello",
+        "visibility": "public",
+        "line": 1
+      }
+    ]
+  },
+  {
+    "path": "crates/alpha/src/lib.rs",
+    "sha256": "41a3ae3096ab7eb8ec49055c49b572215c05b864bc53d78ad1e5d2221a3ccaa2",
+    "language": "Rust",
+    "loc": 1,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/crates/alpha/src/lib.rs",
+    "symbols": [
+      {
+        "type": "module",
+        "name": "greet",
+        "qualifiedName": "greet",
+        "visibility": "public",
+        "line": 1
+      }
+    ]
+  },
+  {
+    "path": "crates/beta/Cargo.toml",
+    "sha256": "80554bd1a3fdd1f39ea7ec2a8cfccd0f6322044899308cfe2dc9e8f264151e17",
+    "language": "TOML",
+    "loc": 4,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/crates/beta/Cargo.toml",
+    "symbols": []
+  },
+  {
+    "path": "crates/beta/src/lib.rs",
+    "sha256": "d7a6c60a38128c77438afba898077028420c9a58a7166a9f5caa96f08bfd602b",
+    "language": "Rust",
+    "loc": 1,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/crates/beta/src/lib.rs",
+    "symbols": [
+      {
+        "type": "module",
+        "name": "util",
+        "qualifiedName": "util",
+        "visibility": "public",
+        "line": 1
+      }
+    ]
+  },
+  {
+    "path": "crates/beta/src/util.rs",
+    "sha256": "d26b18ed97f4d319adf501b3f9c7060256f4f58235e11548001bebf9e7668578",
+    "language": "Rust",
+    "loc": 7,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/crates/beta/src/util.rs",
+    "symbols": [
+      {
+        "type": "class",
+        "name": "Helper",
+        "qualifiedName": "Helper",
+        "visibility": "public",
+        "line": 1
+      },
+      {
+        "type": "method",
+        "name": "assist",
+        "qualifiedName": "Helper.assist",
+        "visibility": "public",
+        "line": 4
+      }
+    ]
+  },
+  {
+    "path": "crates/gamma/Cargo.toml",
+    "sha256": "d57a16d80e0dc6f793e159a0fd52ddfc0eabc36dbd3d584b30c38f46abc27026",
+    "language": "TOML",
+    "loc": 8,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/crates/gamma/Cargo.toml",
+    "symbols": []
+  },
+  {
+    "path": "crates/gamma/src/main.rs",
+    "sha256": "bcc502bb6b9fcdb3cdcdb06ae67ca4b54c12a2a544038b0b129c9211e4957de4",
+    "language": "Rust",
+    "loc": 8,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/crates/gamma/src/main.rs",
+    "symbols": [
+      {
+        "type": "function",
+        "name": "main",
+        "qualifiedName": "main",
+        "visibility": "private",
+        "line": 4
+      }
+    ]
+  }
+]
+===== graph-metrics.json =====
+{
+  "totalRelationships": 5,
+  "resolvedEdges": 5,
+  "unresolvedEdges": 0,
+  "perLanguage": {
+    "Rust": [
+      5,
+      0
+    ]
+  }
+}
+===== graph.json =====
+{
+  "nodes": [
+    {
+      "id": "Cargo.toml",
+      "symbols": []
+    },
+    {
+      "id": "crates/alpha/Cargo.toml",
+      "symbols": []
+    },
+    {
+      "id": "crates/alpha/src/greet.rs",
+      "symbols": [
+        "hello"
+      ]
+    },
+    {
+      "id": "crates/alpha/src/lib.rs",
+      "symbols": [
+        "greet"
+      ]
+    },
+    {
+      "id": "crates/beta/Cargo.toml",
+      "symbols": []
+    },
+    {
+      "id": "crates/beta/src/lib.rs",
+      "symbols": [
+        "util"
+      ]
+    },
+    {
+      "id": "crates/beta/src/util.rs",
+      "symbols": [
+        "Helper",
+        "assist"
+      ]
+    },
+    {
+      "id": "crates/gamma/Cargo.toml",
+      "symbols": []
+    },
+    {
+      "id": "crates/gamma/src/main.rs",
+      "symbols": [
+        "main"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "crates/alpha/src/lib.rs",
+      "target": "crates/alpha/src/greet.rs",
+      "type": "declares",
+      "detail": "greet"
+    },
+    {
+      "source": "crates/beta/src/lib.rs",
+      "target": "crates/beta/src/util.rs",
+      "type": "declares",
+      "detail": "util"
+    },
+    {
+      "source": "crates/gamma/src/main.rs",
+      "target": "crates/alpha/src/greet.rs",
+      "type": "imports",
+      "detail": "alpha::greet"
+    },
+    {
+      "source": "crates/gamma/src/main.rs",
+      "target": "crates/beta/src/util.rs",
+      "type": "imports",
+      "detail": "beta::util::Helper"
+    },
+    {
+      "source": "crates/gamma/src/main.rs",
+      "target": "crates/alpha/src/greet.rs",
+      "type": "calls",
+      "detail": "greet::hello"
+    }
+  ]
+}
+===== project-profile.json =====
+{
+  "buildSystem": {
+    "configFile": "Cargo.toml",
+    "details": null,
+    "name": "Cargo"
+  },
+  "description": null,
+  "entryPoints": [
+    {
+      "description": "Rust binary (src/main.rs)",
+      "path": "crates/gamma/src/main.rs",
+      "type": "main"
+    }
+  ],
+  "frameworks": [],
+  "health": {
+    "dependencyRisk": {
+      "buildSystem": "Cargo",
+      "frameworkCount": 0,
+      "lockfilePresent": false,
+      "missingVersionCount": 0,
+      "riskLevel": "medium"
+    },
+    "evidenceFindings": [
+      {
+        "action": {
+          "kind": "noAction"
+        },
+        "classification": "informational",
+        "confidence": "codified",
+        "evidence": [
+          {
+            "invariantId": "I-GRAPH-ORPHANS-RESPECT-ENTRY-POINTS",
+            "kind": "observation",
+            "metric": "graph.orphanCount",
+            "observedValue": {
+              "graphOrphanCount": 6,
+              "loadedByNameCount": 2,
+              "sourceOrphanCount": 0
+            },
+            "sourcePaths": [
+              "Cargo.toml",
+              "crates/alpha/Cargo.toml",
+              "crates/alpha/src/lib.rs",
+              "crates/beta/Cargo.toml",
+              "crates/beta/src/lib.rs",
+              "crates/gamma/Cargo.toml"
+            ],
+            "sourceType": {
+              "kind": "importGraph"
+            }
+          }
+        ],
+        "evidenceGrade": "derived",
+        "id": "F-ORPHAN-FILES",
+        "inference": {
+          "dependsOn": [
+            "filter:nonOrphanSource",
+            "sampleComplete=true"
+          ],
+          "doesNotImply": [
+            "unused source code is present",
+            "unused source code is absent"
+          ],
+          "statement": "Every file that no other file imports is one that tools load by name or that isn't code: tests, build scripts, configs, docs, examples, fixtures, snapshots, or a crate-root lib.rs. None looks unused.",
+          "strength": "strong"
+        },
+        "knowledgeLayer": "observation",
+        "limitations": [
+          {
+            "code": "DOCS_AND_CONFIG_NOT_TREATED_AS_SOURCE",
+            "detail": "Root manifests, policy docs, READMEs, CI config files, editor / agent config dirs, Cargo integration tests / benches / examples / build scripts, test files found by a test runner's naming rules (pytest, unittest, JUnit, go test, Jest/Vitest), tool configs, example and benchmark folders, fixture data files, insta snapshots, and crate-root lib.rs library entry points are not treated as source files for orphan analysis."
+          }
+        ],
+        "repoContext": [
+          {
+            "kind": "rustWorkspace"
+          },
+          {
+            "kind": "rustBinary"
+          }
+        ],
+        "scope": {
+          "time": {
+            "packId": "pack-CANONICAL"
+          }
+        },
+        "severity": "none",
+        "title": "No unused files found (imports only)"
+      },
+      {
+        "action": {
+          "kind": "reviewIfMaintainerPain"
+        },
+        "classification": "informational",
+        "confidence": "codified",
+        "evidence": [
+          {
+            "kind": "observation",
+            "metric": "structure.dominantModule",
+            "observedValue": "crates",
+            "sourcePaths": [
+              "crates"
+            ],
+            "sourceType": {
+              "kind": "projectProfile"
+            }
+          },
+          {
+            "kind": "observation",
+            "metric": "structure.moduleCount",
+            "observedValue": 1,
+            "sourceType": {
+              "kind": "projectProfile"
+            }
+          },
+          {
+            "kind": "heuristicJudgment",
+            "observedMetric": "structure.dominantModuleShare",
+            "observedValue": 1.0,
+            "rationale": "Heuristic threshold; not justified by an invariant. In some repos this concentration is intentional.",
+            "rule": "structure.dominantModuleShare > 0.8",
+            "threshold": 0.8
+          }
+        ],
+        "evidenceGrade": "derived",
+        "id": "F-DOMINANT-MODULE",
+        "inference": {
+          "dependsOn": [
+            "threshold:dominantModuleShare>0.8"
+          ],
+          "doesNotImply": [
+            "the module is too large",
+            "splitting the module would improve maintainability",
+            "the module is poorly structured"
+          ],
+          "statement": "Module 'crates' contains 100% of total LOC across 1 top-level modules.",
+          "strength": "suggestive"
+        },
+        "knowledgeLayer": "heuristic",
+        "limitations": [
+          {
+            "code": "DOMINANT_MODULE_THRESHOLD_HEURISTIC",
+            "detail": "The 0.8 share threshold is a heuristic. Single-crate libraries, monorepo anchors, and vendored sources legitimately concentrate LOC in one module."
+          }
+        ],
+        "repoContext": [
+          {
+            "kind": "rustWorkspace"
+          },
+          {
+            "kind": "rustBinary"
+          }
+        ],
+        "scope": {
+          "paths": [
+            "crates"
+          ],
+          "time": {
+            "packId": "pack-CANONICAL"
+          }
+        },
+        "severity": "low",
+        "title": "Dominant module: 'crates' holds 100% of LOC"
+      },
+      {
+        "action": {
+          "kind": "reviewIfMaintainerPain"
+        },
+        "classification": "actionable",
+        "confidence": "codified",
+        "evidence": [
+          {
+            "kind": "observation",
+            "metric": "profile.lockfileState",
+            "observedValue": "absentFromRepo",
+            "sourcePaths": [
+              "Cargo.lock"
+            ],
+            "sourceType": {
+              "kind": "fileInventory"
+            }
+          }
+        ],
+        "evidenceGrade": "derived",
+        "id": "F-CARGO-LOCK-STATE",
+        "inference": {
+          "dependsOn": [
+            "lockfileState=absentFromRepo"
+          ],
+          "doesNotImply": [
+            "the project is broken"
+          ],
+          "statement": "Cargo.lock is not present. Projects with a binary target conventionally commit Cargo.lock for reproducible builds and deploys.",
+          "strength": "suggestive"
+        },
+        "knowledgeLayer": "observation",
+        "limitations": [
+          {
+            "code": "LOCKFILE_GIT_TRACKING_INSPECTION_PARTIAL",
+            "detail": "A Cargo.lock with a git index entry is reported as tracked. Otherwise only a conservative root .gitignore match is checked (no wildcards or nested .gitignore files), so an untracked, unignored lockfile is reported as 'unknown'."
+          },
+          {
+            "code": "LIVE_ROOT_VS_PACK_TIME_DIVERGENCE_POSSIBLE",
+            "detail": "Lockfile state is read from the live working tree, not from pack-stored content. If the worktree changed between the pack scan and this report, this finding may disagree with the rest of the summary."
+          }
+        ],
+        "repoContext": [
+          {
+            "kind": "rustWorkspace"
+          },
+          {
+            "kind": "rustBinary"
+          }
+        ],
+        "scope": {
+          "languages": [
+            "rust"
+          ],
+          "time": {
+            "packId": "pack-CANONICAL"
+          }
+        },
+        "severity": "low",
+        "title": "Cargo.lock absent (has a binary target)"
+      }
+    ],
+    "graphHealth": {
+      "cycleCount": 0,
+      "filesInCyclesCount": 0,
+      "largestCycleSize": 0,
+      "orphanCount": 6,
+      "orphanFiles": [
+        "Cargo.toml",
+        "crates/alpha/Cargo.toml",
+        "crates/alpha/src/lib.rs",
+        "crates/beta/Cargo.toml",
+        "crates/beta/src/lib.rs",
+        "crates/gamma/Cargo.toml"
+      ],
+      "testToSourceRatio": 0.0
+    },
+    "structure": {
+      "dominantModule": "crates",
+      "dominantModuleShare": 1.0,
+      "entryPointCount": 1,
+      "moduleCount": 1
+    }
+  },
+  "languageDistribution": {
+    "Rust": 20,
+    "TOML": 19
+  },
+  "modules": [
+    {
+      "fileCount": 8,
+      "loc": 36,
+      "name": "crates",
+      "path": "crates",
+      "primaryLanguage": "Rust"
+    }
+  ],
+  "name": "rust-small",
+  "projectType": "CLI"
+}

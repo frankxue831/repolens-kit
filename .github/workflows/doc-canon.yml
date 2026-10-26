@@ -1,0 +1,67 @@
+name: Doc Canon
+
+# Split out of ci.yml so its path filter can be tuned to documentation /
+# fixture / verifier-script changes only. This means:
+#   - Rust-only commits do NOT run Doc Canon (saves ~30s × N commits)
+#   - Docs-only commits do NOT run the heavy Rust matrix (saves ~3-5min)
+#
+# See `.github/workflows/ci.yml` for the Rust build/test side. Both
+# workflows independently apply concurrency-cancel so rapid pushes
+# collapse to the latest-only run.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'fixtures/**'
+      - 'scripts/verify-doc-canon.sh'
+      - 'scripts/test-verify-doc-canon.sh'
+      - 'scripts/verify-fixtures.sh'
+      - '.github/workflows/doc-canon.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'fixtures/**'
+      - 'scripts/verify-doc-canon.sh'
+      - 'scripts/test-verify-doc-canon.sh'
+      - 'scripts/verify-fixtures.sh'
+      - '.github/workflows/doc-canon.yml'
+
+# Cancel in-progress runs for the same workflow + ref. Same rationale
+# as ci.yml -- rapid commits collapse to a single run.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Read-only token: verifier scripts read the worktree, don't push.
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    name: Doc Canon
+    # Skip-CI commit-message conventions. See ci.yml for the rationale
+    # behind the AND-chain covering both push and PR events.
+    if: |
+      !contains(github.event.head_commit.message, '[skip ci]') &&
+      !contains(github.event.head_commit.message, '[ci skip]') &&
+      !contains(github.event.head_commit.message, '[skip actions]') &&
+      !contains(github.event.pull_request.title, '[skip ci]') &&
+      !contains(github.event.pull_request.title, '[ci skip]')
+    runs-on: ubuntu-latest
+    # The verifier currently runs in ~30s; 5 minutes is a generous cap
+    # that catches a pathological hang.
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Verify doc canon
+        run: bash scripts/verify-doc-canon.sh
+
+      - name: Self-test doc canon verifier
+        run: bash scripts/test-verify-doc-canon.sh
+
+      - name: Verify fixtures
+        run: bash scripts/verify-fixtures.sh

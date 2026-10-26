@@ -1,0 +1,8 @@
+{
+  "totalRelationships" : 1,
+  "resolvedEdges" : 1,
+  "unresolvedEdges" : 0,
+  "perLanguage" : {
+    "TypeScript" : [ 1, 0 ]
+  }
+}

@@ -1,0 +1,15 @@
+---
+source: crates/repolens-core/tests/graph_contract_test.rs
+expression: json
+---
+{
+  "totalRelationships": 3,
+  "resolvedEdges": 3,
+  "unresolvedEdges": 0,
+  "perLanguage": {
+    "Java": [
+      3,
+      0
+    ]
+  }
+}

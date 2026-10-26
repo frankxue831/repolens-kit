@@ -1,0 +1,11 @@
+{
+  "totalRelationships": 3,
+  "resolvedEdges": 3,
+  "unresolvedEdges": 0,
+  "perLanguage": {
+    "Java": [
+      3,
+      0
+    ]
+  }
+}

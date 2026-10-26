@@ -1,0 +1,62 @@
+[
+  {
+    "id": "FAC-001",
+    "workflowStep": "Get a compact repo summary",
+    "question": "What is this repo, in practical terms?",
+    "surface": "snapshot-pack-files",
+    "probe": "Review the workflow-closure dogfood snapshot output and project-profile.json",
+    "expectedStatus": "pass",
+    "frictionTag": "repo-identification",
+    "notes": "Prefer normal RepoLens output; call out any answer that still depends on manual pack inspection."
+  },
+  {
+    "id": "FAC-002",
+    "workflowStep": "Inspect one focused hotspot",
+    "question": "Where should I start if I need to change a specific area?",
+    "surface": "search_code(path+symbol)+read_file_content",
+    "probe": "Use RepoLens search plus one focused file read to identify the first edit point",
+    "expectedStatus": "pass",
+    "frictionTag": "hotspot-discovery",
+    "notes": "Capture whether the answer comes from normal tool flow or from manual pack spelunking."
+  },
+  {
+    "id": "FAC-003",
+    "workflowStep": "Recall relevant memory or conventions",
+    "question": "What prior memory or convention matters before making a change?",
+    "surface": "get_summary(memory)+conventions",
+    "probe": "Check whether one normal RepoLens pass surfaces the memory or convention that should constrain the change",
+    "expectedStatus": "pass",
+    "frictionTag": "memory-conventions",
+    "notes": "Preserve whether the answer was directly available or required manual reconstruction."
+  },
+  {
+    "id": "FAC-004",
+    "workflowStep": "Inspect structural risk",
+    "question": "What are the main structural risks right now?",
+    "surface": "project-profile-health",
+    "probe": "Use profile or summary output to identify current risks without ad hoc JSON digging",
+    "expectedStatus": "pass",
+    "frictionTag": "risk-inspection",
+    "notes": "This case stays manual because the product judgment is qualitative even when the data source is structured."
+  },
+  {
+    "id": "FAC-005",
+    "workflowStep": "Inspect one focused hotspot",
+    "question": "Can symbol search find `ProfileAnalyzer::analyze` directly?",
+    "surface": "search_code(symbol)",
+    "probe": "Query `ProfileAnalyzer::analyze` in symbol mode",
+    "expectedStatus": "known_fail",
+    "frictionTag": "symbol-lookup",
+    "notes": "Current symbol search matches symbolName but not qualified_name; preserve this miss until repeated eval evidence justifies a broader phase."
+  },
+  {
+    "id": "FAC-006",
+    "workflowStep": "Validate tool request shape",
+    "question": "Do MCP tools reject unknown request parameters instead of silently falling back?",
+    "surface": "MCP parameter decoding",
+    "probe": "Call representative MCP tools with plausible but unknown parameters, such as `read_file_content` with `mode` and `get_graph` with `focus`, and verify the calls fail clearly instead of running default behavior.",
+    "expectedStatus": "pass",
+    "frictionTag": "mcp-unknown-args-ignored",
+    "notes": "Promoted from the 2026-05-31 dogfood ledger and fixed by strict MCP parameter deserialization. Keep this case to verify agents do not receive misleading default output when they send plausible but wrong parameter names."
+  }
+]

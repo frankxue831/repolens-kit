@@ -1,0 +1,410 @@
+---
+source: crates/repolens-app/tests/pack_byte_identity_test.rs
+assertion_line: 202
+expression: "render_pack_golden(\"mixed-small\")"
+---
+===== files-0001.json =====
+[
+  {
+    "path": "go/cmd/tool/main.go",
+    "sha256": "3fab28ab30b92563bd56ca99b15dcd14a1f3d0a782846c297c69d1dd36dd82a6",
+    "language": "Go",
+    "loc": 11,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/go/cmd/tool/main.go",
+    "symbols": [
+      {
+        "type": "function",
+        "name": "main",
+        "qualifiedName": "main",
+        "visibility": "private"
+      },
+      {
+        "type": "function",
+        "name": "greet",
+        "qualifiedName": "greet",
+        "visibility": "private"
+      }
+    ]
+  },
+  {
+    "path": "go/go.mod",
+    "sha256": "14f21a4bd21a853e5985fd3c2de4658ea60152e1c9899f5b340d1afd90e8a743",
+    "language": "Unknown",
+    "loc": 3,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/go/go.mod",
+    "symbols": []
+  },
+  {
+    "path": "package.json",
+    "sha256": "a212ee8023e0cfb7e045aaedc26d0ef3c67182b78c802b743b253f14f842bcaa",
+    "language": "JSON",
+    "loc": 4,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/package.json",
+    "symbols": []
+  },
+  {
+    "path": "py/worker.py",
+    "sha256": "f30dd5e2e12fa96d5e840a9b252961ed4c6af74cc5b775325c1b1bdd1f222baa",
+    "language": "Python",
+    "loc": 16,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/py/worker.py",
+    "symbols": [
+      {
+        "type": "class",
+        "name": "Worker",
+        "qualifiedName": "Worker",
+        "visibility": "public"
+      },
+      {
+        "type": "function",
+        "name": "process",
+        "qualifiedName": "process",
+        "visibility": "public"
+      }
+    ]
+  },
+  {
+    "path": "src/index.ts",
+    "sha256": "e1017592a89ac3f9634bbc55451d900644f2e12f27a00e5eb6dd5fb0ccaed772",
+    "language": "TypeScript",
+    "loc": 8,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/src/index.ts",
+    "symbols": [
+      {
+        "type": "function",
+        "name": "main",
+        "qualifiedName": "main",
+        "visibility": "public"
+      }
+    ]
+  },
+  {
+    "path": "src/util.js",
+    "sha256": "1c69fe35701a9e9d2dbdfcf7ba6fb4c93d2fdc2268d1b71eeb7d28c78f9be529",
+    "language": "JavaScript",
+    "loc": 8,
+    "included": true,
+    "reason": "included",
+    "contentPath": "files/src/util.js",
+    "symbols": [
+      {
+        "type": "function",
+        "name": "formatMessage",
+        "qualifiedName": "formatMessage",
+        "visibility": "public"
+      }
+    ]
+  }
+]
+===== graph-metrics.json =====
+{
+  "totalRelationships": 1,
+  "resolvedEdges": 1,
+  "unresolvedEdges": 0,
+  "perLanguage": {
+    "TypeScript": [
+      1,
+      0
+    ]
+  }
+}
+===== graph.json =====
+{
+  "nodes": [
+    {
+      "id": "go/cmd/tool/main.go",
+      "symbols": [
+        "main",
+        "greet"
+      ]
+    },
+    {
+      "id": "go/go.mod",
+      "symbols": []
+    },
+    {
+      "id": "package.json",
+      "symbols": []
+    },
+    {
+      "id": "py/worker.py",
+      "symbols": [
+        "Worker",
+        "process"
+      ]
+    },
+    {
+      "id": "src/index.ts",
+      "symbols": [
+        "main"
+      ]
+    },
+    {
+      "id": "src/util.js",
+      "symbols": [
+        "formatMessage"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "src/index.ts",
+      "target": "src/util.js",
+      "type": "imports",
+      "detail": "./util"
+    }
+  ]
+}
+===== project-profile.json =====
+{
+  "buildSystem": {
+    "configFile": "package.json",
+    "details": null,
+    "name": "npm"
+  },
+  "description": null,
+  "entryPoints": [
+    {
+      "description": "Go main function",
+      "path": "go/cmd/tool/main.go",
+      "type": "main"
+    },
+    {
+      "description": "JS/TS entry point",
+      "path": "src/index.ts",
+      "type": "main"
+    }
+  ],
+  "frameworks": [],
+  "health": {
+    "dependencyRisk": {
+      "buildSystem": "npm",
+      "frameworkCount": 0,
+      "lockfilePresent": false,
+      "missingVersionCount": 0,
+      "riskLevel": "medium"
+    },
+    "evidenceFindings": [
+      {
+        "action": {
+          "kind": "concreteAction",
+          "steps": [
+            "For each listed file, check whether it is reached by a path the import graph does not capture — a CLI/subcommand dispatch, a test/example/bench harness, a build script, conditional compilation (cfg), or dynamic / reflective loading — before treating it as unused.",
+            "Remove a file only after confirming it is genuinely unreachable; if it is an intentional entry point or seam, leave it. This finding does not assert the files are dead code."
+          ]
+        },
+        "classification": "actionable",
+        "confidence": "codified",
+        "evidence": [
+          {
+            "invariantId": "I-GRAPH-ORPHANS-RESPECT-ENTRY-POINTS",
+            "kind": "observation",
+            "metric": "graph.orphanCount",
+            "observedValue": {
+              "graphOrphanCount": 3,
+              "loadedByNameCount": 0,
+              "sourceOrphanCount": 1
+            },
+            "sourceType": {
+              "kind": "importGraph"
+            }
+          },
+          {
+            "kind": "observation",
+            "metric": "graph.orphanFiles",
+            "observedValue": {
+              "sample": [
+                "py/worker.py"
+              ],
+              "sampleComplete": true
+            },
+            "sourcePaths": [
+              "py/worker.py"
+            ],
+            "sourceType": {
+              "kind": "importGraph"
+            }
+          },
+          {
+            "kind": "heuristicJudgment",
+            "observedMetric": "graph.orphanRatio",
+            "observedValue": 0.16666666666666666,
+            "rationale": "Heuristic threshold; not justified by an invariant. Above the threshold the orphan list may indicate dead code or seam files worth reviewing.",
+            "rule": "graph.orphanRatio > 0.05",
+            "threshold": 0.05
+          }
+        ],
+        "evidenceGrade": "derived",
+        "id": "F-ORPHAN-FILES",
+        "inference": {
+          "dependsOn": [
+            "filter:nonOrphanSource",
+            "sampleComplete=true",
+            "threshold:graph.orphanRatio>0.05"
+          ],
+          "doesNotImply": [
+            "these files are dead code",
+            "these files can be deleted safely"
+          ],
+          "statement": "1 source file (of 3 graph orphans) has no inbound import edges (entry points excluded), not counting files that aren't source code (root manifests, policy docs, editor/agent configs, Cargo test/bench/example/build-script targets, test files a test runner finds by name, tool configs, example and benchmark folders, fixture data, insta snapshots, crate-root lib.rs entry points). It may still import other modules.",
+          "strength": "suggestive"
+        },
+        "knowledgeLayer": "heuristic",
+        "limitations": [
+          {
+            "code": "DOCS_AND_CONFIG_NOT_TREATED_AS_SOURCE",
+            "detail": "Root manifests, policy docs, READMEs, CI config files, editor / agent config dirs, Cargo integration tests / benches / examples / build scripts, test files found by a test runner's naming rules (pytest, unittest, JUnit, go test, Jest/Vitest), tool configs, example and benchmark folders, fixture data files, insta snapshots, and crate-root lib.rs library entry points are filtered before the orphan list is reported."
+          }
+        ],
+        "repoContext": [
+          {
+            "kind": "nodeApplication"
+          }
+        ],
+        "scope": {
+          "paths": [
+            "py/worker.py"
+          ],
+          "time": {
+            "packId": "pack-CANONICAL"
+          }
+        },
+        "severity": "low",
+        "title": "Some files may be unused (imports only)"
+      },
+      {
+        "action": {
+          "kind": "reviewIfMaintainerPain"
+        },
+        "classification": "actionable",
+        "confidence": "codified",
+        "evidence": [
+          {
+            "kind": "observation",
+            "metric": "profile.buildSystem",
+            "observedValue": "npm",
+            "sourcePaths": [
+              "package.json"
+            ],
+            "sourceType": {
+              "kind": "projectProfile"
+            }
+          },
+          {
+            "kind": "heuristicJudgment",
+            "observedMetric": "profile.lockfileState",
+            "observedValue": {
+              "buildSystem": "npm",
+              "lockfilePresent": false
+            },
+            "rationale": "Heuristic threshold; not justified by an invariant. A build system without a committed lockfile typically indicates non-reproducible dependency resolution, but intentional unpinned-dev workflows and pre-release repos may legitimately lack one.",
+            "rule": "build system has standard lockfiles && !lockfile_present && build_system != Cargo && !library",
+            "threshold": {
+              "rule": "warn when build system present without matching lockfile"
+            }
+          }
+        ],
+        "evidenceGrade": "unaudited",
+        "id": "F-LOCKFILE-MISSING-NON-CARGO",
+        "inference": {
+          "dependsOn": [
+            "build_system.detected"
+          ],
+          "doesNotImply": [
+            "the project is broken",
+            "the project is misconfigured",
+            "a lockfile would resolve all reproducibility concerns"
+          ],
+          "statement": "A npm build system was detected but none of its lockfiles (package-lock.json, yarn.lock, pnpm-lock.yaml) is present. Dependency resolution may not be reproducible across machines.",
+          "strength": "suggestive"
+        },
+        "knowledgeLayer": "heuristic",
+        "limitations": [
+          {
+            "code": "LIVE_ROOT_VS_PACK_TIME_DIVERGENCE_POSSIBLE",
+            "detail": "Lockfile presence is detected from the pack's file inventory. A lockfile added or removed in the working tree after the scan is not reflected."
+          }
+        ],
+        "repoContext": [
+          {
+            "kind": "nodeApplication"
+          }
+        ],
+        "scope": {
+          "languages": [
+            "Go",
+            "JSON",
+            "JavaScript",
+            "Python",
+            "TypeScript"
+          ],
+          "time": {
+            "packId": "pack-CANONICAL"
+          }
+        },
+        "severity": "low",
+        "title": "No lockfile found for npm build system"
+      }
+    ],
+    "graphHealth": {
+      "cycleCount": 0,
+      "filesInCyclesCount": 0,
+      "largestCycleSize": 0,
+      "orphanCount": 3,
+      "orphanFiles": [
+        "go/go.mod",
+        "package.json",
+        "py/worker.py"
+      ],
+      "testToSourceRatio": 0.0
+    },
+    "structure": {
+      "dominantModule": "src",
+      "dominantModuleShare": 0.34782608695652173,
+      "entryPointCount": 2,
+      "moduleCount": 3
+    }
+  },
+  "languageDistribution": {
+    "Go": 11,
+    "JSON": 4,
+    "JavaScript": 8,
+    "Python": 16,
+    "TypeScript": 8
+  },
+  "modules": [
+    {
+      "fileCount": 2,
+      "loc": 14,
+      "name": "go",
+      "path": "go",
+      "primaryLanguage": "Go"
+    },
+    {
+      "fileCount": 1,
+      "loc": 16,
+      "name": "py",
+      "path": "py",
+      "primaryLanguage": "Python"
+    },
+    {
+      "fileCount": 2,
+      "loc": 16,
+      "name": "src",
+      "path": "src",
+      "primaryLanguage": "TypeScript"
+    }
+  ],
+  "name": "mixed-small",
+  "projectType": "CLI"
+}

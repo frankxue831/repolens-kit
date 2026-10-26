@@ -1,0 +1,10 @@
+{
+  "nodes" : [ {
+    "id" : ".gitignore",
+    "symbols" : [ ]
+  }, {
+    "id" : "src/main.py",
+    "symbols" : [ "main" ]
+  } ],
+  "edges" : [ ]
+}

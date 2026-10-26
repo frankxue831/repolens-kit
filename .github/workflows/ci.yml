@@ -1,0 +1,153 @@
+name: CI
+
+# Runners: GitHub-hosted only. Pull requests run ubuntu-latest only;
+# macos-latest runs only on push to main and on manual
+# workflow_dispatch. See the matrix below.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    # Fire when Rust code OR any of its test inputs change. Docs-only
+    # commits are validated by `.github/workflows/doc-canon.yml`, not
+    # here. The workflow file itself is in this list so edits to ci.yml
+    # validate against the new workflow definition.
+    #
+    # Test-input and compile-time-input paths -- any of these being
+    # touched must trigger `cargo test --workspace` because the test
+    # or build consumes the file directly.
+    #
+    # Per CLAUDE.md "Test Fixtures" and grep'd `include_str!` calls:
+    #   - `**/fixtures/**`         -- mini-repo fixtures, test-data,
+    #                                 contract scenarios, AND crate-internal
+    #                                 fixtures (e.g. crates/repolens-core/
+    #                                 fixtures/*.yaml used by bootstrap
+    #                                 contract tests). The leading `**/`
+    #                                 catches both top-level `fixtures/`
+    #                                 AND crate-internal `crates/*/fixtures/`.
+    #   - `**/*.snap` / `**/*.snap.new`
+    #                              -- insta snapshot comparison files
+    #   - `bootstrap.yaml`         -- bootstrap-runtime contract fixture
+    #   - `docs/templates/**`      -- repolens-cli embeds these via
+    #                                 `include_str!` at compile time
+    #                                 (see crates/repolens-cli/src/init.rs)
+    #   - `docs/evals/**`          -- repolens-cli embeds these too
+    #                                 (see crates/repolens-cli/src/eval.rs)
+    paths:
+      - '**/*.rs'
+      - '**/Cargo.toml'
+      - 'Cargo.lock'
+      - 'rust-toolchain*'
+      - '**/fixtures/**'
+      - '**/*.snap'
+      - '**/*.snap.new'
+      - 'bootstrap.yaml'
+      - 'docs/templates/**'
+      - 'docs/evals/**'
+      - '.github/workflows/ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/*.rs'
+      - '**/Cargo.toml'
+      - 'Cargo.lock'
+      - 'rust-toolchain*'
+      - '**/fixtures/**'
+      - '**/*.snap'
+      - '**/*.snap.new'
+      - 'bootstrap.yaml'
+      - 'docs/templates/**'
+      - 'docs/evals/**'
+      - '.github/workflows/ci.yml'
+
+# Cancel in-progress runs for the same workflow + ref. Designed for
+# rapid-commit / vibe-coding workflows: pushing N commits to a PR
+# branch in quick succession runs CI only for the FINAL commit; the
+# in-flight runs for the intermediate commits are cancelled.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Minimize default GITHUB_TOKEN scope. Build & test never write to the
+# repo, push images, or modify releases.
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check:
+    name: Build & Test
+    # Skip-CI commit-message conventions. `head_commit.message` is set on
+    # push events; `pull_request.title` on PR events. Each `contains()`
+    # returns false when its field is null, so the AND-chain correctly
+    # gates both event types without separate jobs.
+    if: |
+      !contains(github.event.head_commit.message, '[skip ci]') &&
+      !contains(github.event.head_commit.message, '[ci skip]') &&
+      !contains(github.event.head_commit.message, '[skip actions]') &&
+      !contains(github.event.pull_request.title, '[skip ci]') &&
+      !contains(github.event.pull_request.title, '[ci skip]')
+    # Hard cap so a hung runner or hung test doesn't run unbounded.
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      # Pull requests run ubuntu only; macOS runs only on push to main
+      # and on manual workflow_dispatch. Both entries use GitHub-hosted
+      # runners with Swatinem/rust-cache.
+      matrix:
+        include: ${{ fromJSON(github.event_name == 'pull_request' && '[{"os":"ubuntu-latest","runs-on":"ubuntu-latest","cache":true}]' || '[{"os":"ubuntu-latest","runs-on":"ubuntu-latest","cache":true},{"os":"macos-latest","runs-on":"macos-latest","cache":true}]') }}
+    runs-on: ${{ matrix.runs-on }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - uses: Swatinem/rust-cache@v2
+        if: matrix.cache
+
+      # `actions/checkout@v6` defaults to `clean: true`, which runs
+      # `git clean -ffdx` and would wipe a `target/` directory inside the
+      # work tree between runs. Relocate it under the runner user's home
+      # so it survives across runs on the persistent runner host.
+      - name: Configure persistent Cargo target dir (self-hosted only)
+        if: ${{ matrix.cache == false }}
+        run: |
+          mkdir -p "$HOME/cargo-targets/repolens-rs"
+          echo "CARGO_TARGET_DIR=$HOME/cargo-targets/repolens-rs" >> "$GITHUB_ENV"
+
+      - name: Format check
+        run: cargo fmt --all -- --check
+
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: Tests
+        run: cargo test --workspace
+
+      - name: Repeat flaky regression tests (100 iterations)
+        shell: bash
+        env:
+          CARGO_TERM_COLOR: never
+        run: |
+          set -euo pipefail
+          test_output=$(mktemp)
+          trap 'rm -f "$test_output"' EXIT
+
+          run_one_test() {
+            cargo test "$@" 2>&1 | tee "$test_output"
+            if ! grep -Eq '^test result: ok\. 1 passed; 0 failed; 0 ignored;' "$test_output"; then
+              echo "Expected exactly one passing test, with none failed or ignored" >&2
+              exit 1
+            fi
+          }
+
+          for iteration in {1..100}; do
+            echo "Regression test iteration ${iteration}/100"
+            run_one_test -p repolens-cli --test memory_cli_test recall_with_clock_override_writes_nothing -- --exact
+            run_one_test -p repolens-app --test bootstrap_runtime_test loser_abort_does_not_delete_newer_markers_after_winner_finishes -- --exact
+          done
+          echo "Both regression tests passed all 100 iterations"

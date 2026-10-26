@@ -1,0 +1,36 @@
+---
+source: crates/repolens-core/tests/pack_contract_test.rs
+expression: json
+---
+[
+  {
+    "path": ".git/COMMIT_EDITMSG",
+    "sha256": "",
+    "language": "",
+    "loc": 0,
+    "included": false,
+    "reason": "excluded:git",
+    "contentPath": null,
+    "symbols": []
+  },
+  {
+    "path": ".git/HEAD",
+    "sha256": "",
+    "language": "",
+    "loc": 0,
+    "included": false,
+    "reason": "excluded:git",
+    "contentPath": null,
+    "symbols": []
+  },
+  {
+    "path": ".git/config",
+    "sha256": "",
+    "language": "",
+    "loc": 0,
+    "included": false,
+    "reason": "excluded:git",
+    "contentPath": null,
+    "symbols": []
+  }
+]

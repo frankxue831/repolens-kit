@@ -1,0 +1,49 @@
+{
+  "name" : "mixed-small",
+  "buildSystem" : {
+    "name" : "npm",
+    "details" : null,
+    "configFile" : "package.json"
+  },
+  "frameworks" : [ ],
+  "projectType" : "CLI",
+  "entryPoints" : [ {
+    "type" : "main",
+    "path" : "src/index.ts",
+    "description" : "Common entry point file"
+  } ],
+  "description" : null,
+  "languageDistribution" : {
+    "Python" : 16,
+    "Go" : 11,
+    "TypeScript" : 8,
+    "JavaScript" : 8,
+    "JSON" : 4,
+    "Unknown" : 3
+  },
+  "modules" : [ {
+    "name" : "src",
+    "path" : "src",
+    "fileCount" : 2,
+    "loc" : 16,
+    "primaryLanguage" : "TypeScript"
+  }, {
+    "name" : "py",
+    "path" : "py",
+    "fileCount" : 1,
+    "loc" : 16,
+    "primaryLanguage" : "Python"
+  }, {
+    "name" : "go",
+    "path" : "go",
+    "fileCount" : 2,
+    "loc" : 14,
+    "primaryLanguage" : "Go"
+  }, {
+    "name" : ".",
+    "path" : ".",
+    "fileCount" : 1,
+    "loc" : 4,
+    "primaryLanguage" : "JSON"
+  } ]
+}
