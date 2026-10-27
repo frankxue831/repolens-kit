@@ -28,6 +28,9 @@ on:
       - 'scripts/test-verify-doc-canon.sh'
       - 'scripts/verify-fixtures.sh'
       - '.github/workflows/doc-canon.yml'
+  # Manual runs from the Actions tab (or `gh workflow run doc-canon.yml`),
+  # so Doc Canon can be re-run on main without a docs-path push.
+  workflow_dispatch:
 
 # Cancel in-progress runs for the same workflow + ref. Same rationale
 # as ci.yml -- rapid commits collapse to a single run.
